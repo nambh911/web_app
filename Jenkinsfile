@@ -8,7 +8,8 @@ pipeline{
         }
         stage('Execute test web-app'){
             steps{
-                sh '/usr/bin/python3 manage.py test'
+                sh 'cd /home/nambh6/web_app'
+                sh 'python3 manage.py test'
             }
         }
         stage('Build docker image'){
