@@ -8,7 +8,7 @@ pipeline{
         }
         stage('SSH server and Execute test web-app'){
             steps{
-                sshagent(['ssh-remote-web']) {
+                sshagent(['ssh-remote']) {
                     sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 10.17.143.117 python3 manage.py test'
                 }
             }
