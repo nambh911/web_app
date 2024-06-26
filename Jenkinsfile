@@ -6,10 +6,11 @@ pipeline{
                 git branch: 'develop', credentialsId: 'ssh-remote-web', url: 'https://github.com/nambh911/web_app.git'
             }
         }
-        stage('Execute test web-app'){
+        stage('SSH server and Execute test web-app'){
             steps{
-                sh 'cd $HOME/web_app'
-                sh 'python3 manage.py test'
+                sshagent(['ssh-remote-web']) {
+                    sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 10.17.143.117 python3 manage.py test'
+                }
             }
         }
         stage('Build docker image'){
