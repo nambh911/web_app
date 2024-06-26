@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Git checkout'){
             steps{
-                git branch: 'develop', credentialsId: 'ssh-remote-web', url: 'https://github.com/nambh911/web_app.git'
+                git branch: 'master', credentialsId: 'ssh-remote-web', url: 'https://github.com/nambh911/web_app.git'
             }
         }
         stage('SSH server and Execute test web-app'){
