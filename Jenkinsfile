@@ -6,6 +6,11 @@ pipeline{
                 git branch: 'develop', credentialsId: 'ssh-remote-web', url: 'https://github.com/nambh911/web_app.git'
             }
         }
+        stage('Execute test web-app'){
+            steps{
+                sh 'python3 manage.py test'
+            }
+        }
         stage('Build docker image'){
             steps{
                 sh 'docker build -t web-app .'
@@ -14,6 +19,7 @@ pipeline{
         stage('Run docker container'){
             steps{
                 sh 'docker run -d --name web-django -p 8000:8000 web-app'
+                sh 'docker ps'
             }
         }
     }
