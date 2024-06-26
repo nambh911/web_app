@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update To-Do</title>
+</head>
+<body>
+    <h1>Update To-Do</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'index' %}">Back to To-Do List</a>
+</body>
+</html>
