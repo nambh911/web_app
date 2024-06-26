@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Execute test web-app'){
             steps{
-                sh 'cd /home/nambh6/web_app'
+                sh 'cd $HOME/web_app'
                 sh 'python3 manage.py test'
             }
         }
