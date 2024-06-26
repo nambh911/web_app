@@ -9,7 +9,7 @@ pipeline{
         stage('SSH server and Execute test web-app'){
             steps{
                 sshagent(['ssh-root-ubuntu']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 10.17.143.117 python3 manage.py test'
+                    sh 'ssh -o StrictHostKeyChecking=no -l root 10.17.143.117 python3 manage.py test'
                 }
             }
         }
