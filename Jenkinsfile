@@ -15,7 +15,9 @@ pipeline{
         }
         stage('Build docker image'){
             steps{
-                sh 'docker build -t web-app .'
+                dir('./web') {
+                    sh 'docker build -t web-app .'
+                }
             }
         }
         stage('Run docker container'){
